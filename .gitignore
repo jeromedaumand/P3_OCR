@@ -1,3 +1,4 @@
 /.idea/
 .idea/workspace.xml
 /adminer/
+inc_db_connection.php
