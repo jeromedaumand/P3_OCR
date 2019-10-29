@@ -24,17 +24,50 @@ include('header.php');
 ?>
 
 
-<div class="col"><!-- un container global partenaire -->
-        <div class="main"> <!-- container pour le logo -->
-            <div class="fakeimg"><img src="/img/logo.jpg"></div>
+<div class="col"><?php
+    // recupération de la liste des acteurs
+
+    //verification de l'id passer en URL
+    if ( isset($_GET['id']) and !empty($_GET['id']) and is_numeric($_GET['id']) ) {
+        $id_act = $_GET['id'];
+    }
+    else {
+        echo "Cette page n'est pas accéssible directement <br />";
+        echo "Vous allez être redirigé automatiquement.";
+        header ("Refresh: 5;URL=actors.php");
+        exit;
+    }
+
+
+    $requete = $bdd->query('select id_acteur, acteur, description, logo  from  acteur where id_acteur = '.$id_act) or die(print_r($bdd->errorInfo()));
+
+    //affichage des acteurs
+    if ($requete->rowCount() > 0) {
+        while ($donnees = $requete->fetch())
+        {
+            echo '      <div class="main"> <!-- container pour le logo -->
+            <div class="fakeimg_logo"><img src="/img/'.$donnees["logo"].'"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
-            <h3>Nom du partenaire</h3>
-            <p>Contenue textuelContenue textuelContenue textuelContenue textuel ... + Lien..</p>
+            <h3>'.$donnees["acteur"].'</h3>
+            <p>'.nl2br($donnees["description"]).'</p>
             <div class="bouton">
-                <a href="actors.php" >Retour...</a>
+                <a href="actors.php">Retour...</a>
             </div>
         </div>
+            ';
+        }
+        $requete->closeCursor();
+    }
+    else{
+        echo "aucun partenaire trouvé !<br />";
+        echo "Vous allez être redirigé automatiquement.";
+        header ("Refresh: 5;URL=actors.php");
+        exit;
+    }
+
+    ?>
+
 </div>
 
 <section class="commentaire"> <!-- container pour les commentaires -->

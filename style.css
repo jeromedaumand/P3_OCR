@@ -175,7 +175,6 @@ body {
     background-color: #aaa;
 }
 
-/* Fake image, just for this example */
 .fakeimg {
     width: auto;
     padding: 5px;
@@ -186,6 +185,27 @@ body {
 
 .fakeimg img {
     max-height: 150px;
+    max-width: 200px;
+    position: relative;
+    left: -400px;
+    -webkit-animation-name: lefttoright; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: normal; /* Safari 4.0 - 8.0 */
+    animation-name: lefttoright;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.fakeimg_logo {
+    width: auto;
+    padding: 5px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.fakeimg_logo img {
     position: relative;
     left: -400px;
     -webkit-animation-name: lefttoright; /* Safari 4.0 - 8.0 */
@@ -269,12 +289,22 @@ body {
 
         width: auto;
     }
-}
-@media screen and (max-width: 700px) {
     .col{
         flex-direction: column;
         flex-wrap: nowrap;
         width: auto;
+    }
+    .fakeimg img {
+        max-width: 80px;
+    }
+    .side{
+        flex: 10%;
+    }
+    .main{
+        flex:90%;
+    }
+    .fakeimg_logo img {
+        max-width: 300px;
     }
 }
 /* Safari 4.0 - 8.0 */
