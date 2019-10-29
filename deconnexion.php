@@ -21,22 +21,24 @@ include('header.php');
 <section class="presentation">
     <div class="col">
         <div class="main"><h1><?php echo $title; ?></h1></div>
-        <div class="main"><p>Espace <b>Réservé</b> aux employés.<br />Merci de vous authentifer.</p></div>
-    </div>
-</section>
-
-
-<section class="login">
-    <div class="main">
-        <form action="auth.php" method="post" class="formulaire">
-            <p>Nom d'utilisateur<br /><input class="input_login" type="text" value="login" name="login"></p>
-            <p>Mot de passe<br /><input class="input_password" type="password" " value="password" name="password"></p>
-            <input type="submit" class="input_bouton">
-        </form>
+        <div class="main"><p>A bientot sur notre Extranet.</p></div>
     </div>
 </section>
 
 <?php
+// vidage de la session
+unset($_SESSION['username']);
+unset($_SESSION['login']);
+unset($_SESSION['auth']);
+?>
+<section class="login">
+    <div class="main">
+        <p>Vous êtes maintenant déconnecté</p>
+    </div>
+</section>
+
+<?php
+header ("Refresh: 5;URL=index.php");
 include "footer.php";
 ?>
 

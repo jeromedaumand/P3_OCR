@@ -11,9 +11,8 @@ body {
 /* Header/logo Title */
 .header {
     padding: 5px;
-    text-align: center;
     background: #fff;
-    color: white;
+    color: black;
     width: auto;
 }
 
@@ -23,18 +22,23 @@ body {
 }
 
 .header .main_header{
+    display: flex;
     background: #fff;
-    text-align: right;
     color: black;
     font-weight: bold;
+    justify-content: right;
 }
+
+.header img, .header p {
+    vertical-align: middle;
+}
+
 .header .col {
     align-items: center;
     align-content: flex-start;
 }
 .header .row {
     border-style: none;
-
     margin: 0;
 }
 

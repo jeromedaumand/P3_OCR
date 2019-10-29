@@ -17,6 +17,13 @@ include ('constante.php');
 <?php
 include('header.php');
 ?>
+<?php
+if (!isset($_SESSION['auth']) or ($_SESSION['auth'] != 1 )){
+    header ("Refresh: 0;URL=index.php");
+    exit;
+}
+
+?>
 
 <section class="presentation">
     <div class="col">
