@@ -296,6 +296,7 @@ body {
     }
     .fakeimg img {
         max-width: 80px;
+        left: -100px;
     }
     .side{
         flex: 10%;
@@ -305,6 +306,7 @@ body {
     }
     .fakeimg_logo img {
         max-width: 300px;
+        left: -350px;
     }
 }
 /* Safari 4.0 - 8.0 */

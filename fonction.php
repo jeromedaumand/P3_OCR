@@ -22,3 +22,17 @@ function limite_ligne($chaine,$max=10){
     }
     return $chaine; // on retourne le résultat
 }
+
+
+function date_fr($time){
+    //affichage de la date au format FR
+
+    setlocale(LC_TIME,'fr_FR','french','French_France.1252','fr_FR.ISO8859-1','fra');
+    $datefmt = new IntlDateFormatter('fr_FR', NULL, NULL, NULL, NULL, 'dd MMMM yyyy');
+
+        // pour une date qui vient d'un champ DATE(TIME) de MySQL
+        $time = date_create($time);
+        $time = $datefmt->format($time);
+        return $time;
+
+}
