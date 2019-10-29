@@ -19,15 +19,13 @@ else {
 }
 
 //verification de l'action like / Dislike
-if ( isset($_GET['action']) and !empty($_GET['action']) and is_numeric($_GET['action']) or ( $_GET['action'] = 0 or $_GET['action'] = 1 ) ) {
+if ( isset($_GET['action']) and !empty($_GET['action']) and is_numeric($_GET['action']) or ( $_GET['action'] == 0 or $_GET['action'] == 1 ) ) {
     $vote = $_GET['action'];
 }
 else {
     echo "Cette page n'est pas accéssible directement <br />";
     echo "Vous allez être redirigé automatiquement.";
-    print_r($_GET);
-    //header ("Refresh: 5;URL=actors.php");
-    exit;
+    header ("Refresh: 5;URL=actors.php");
 }
 
 // verification si l'utilisateur à déja liké on le lui refuse et on redirige vers la page acteur.php
@@ -40,20 +38,9 @@ $req_like = $bdd->query('select vote from  vote
 //recupération du nombre de commentaire
 $like = $req_like->fetch();
 
-print_r($like);
-echo "'le result de la requete vaut ". $like['0']. "<br />";
-print_r($vote);
-echo "l'action en URL vaut ". $_GET['action']. "<br />";
-print_r($_GET);
+if ( $req_like->rowCount() == 0 ) {
+    //aucun résultat, on update
 
-
-exit;
-if ( $like[0] = $vote ){
-    // vote déja liké/disliké, on redirige vers la page de l'acteur
-
-    header ("Refresh: 0;URL=acteur.php?id=$id_act");
-}else{
-    //on ajoute une entrée ou on update le result
     $update = $bdd->prepare('INSERT INTO vote(id_user, id_acteur, vote) VALUES(:userid, :acteurid, :vote) ON DUPLICATE KEY UPDATE vote = :vote ');
     $update->execute(array(
         'userid' => $_SESSION['id_user'],
@@ -61,13 +48,30 @@ if ( $like[0] = $vote ){
         'vote' => $vote
     )) or die(print_r($bdd->errorInfo()));
     //var_dump($update);
-    print_r($like);
-    print_r($update);
-    exit;
 
     $update->closeCursor();
     header ("Refresh: 0;URL=acteur.php?id=$id_act");
-
 }
+else{
+    if ( $like[0] == $vote ){
+        // vote déja liké/disliké, on redirige vers la page de l'acteur
+
+        header ("Refresh: 0;URL=acteur.php?id=$id_act");
+    }else{
+        //on ajoute une entrée ou on update le result
+        $update = $bdd->prepare('INSERT INTO vote(id_user, id_acteur, vote) VALUES(:userid, :acteurid, :vote) ON DUPLICATE KEY UPDATE vote = :vote ');
+        $update->execute(array(
+            'userid' => $_SESSION['id_user'],
+            'acteurid' => $id_act,
+            'vote' => $vote
+        )) or die(print_r($bdd->errorInfo()));
+        //var_dump($update);
+
+        $update->closeCursor();
+        header ("Refresh: 0;URL=acteur.php?id=$id_act");
+
+    }
+}
+
 //fin de l'insertion du nouveau message
 ?>
