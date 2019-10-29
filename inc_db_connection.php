@@ -1,4 +1,7 @@
 <?php
+session_start(); // On démarre la session AVANT toute chose
+
+
 // parametre de connection MYSQL
 $my_server = "localhost";
 $my_db = "ocr";
