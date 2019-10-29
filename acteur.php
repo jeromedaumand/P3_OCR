@@ -21,13 +21,13 @@ include('header.php');
 
 <div class="col"><!-- un container global partenaire -->
         <div class="main"> <!-- container pour le logo -->
-            <div class="fakeimg">Image</div>
+            <div class="fakeimg"><img src="/img/logo.jpg"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
             <h3>Nom du partenaire</h3>
             <p>Contenue textuelContenue textuelContenue textuelContenue textuel ... + Lien..</p>
             <div class="bouton">
-                <a href="#" >Retour...</a>
+                <a href="actors.php" >Retour...</a>
             </div>
         </div>
 </div>
@@ -35,17 +35,25 @@ include('header.php');
 <section class="commentaire"> <!-- container pour les commentaires -->
         <div class="row">
             <div class="side">X commentaires</div>
-            <div class="bouton"><p align="center"><a href="#" >Nouveau<br />commentaire</a></p></div>
-            <div class="bouton"><p align="center"><a href="#" >X like / Y dislike</a></p></div>
+            <div class="bouton"><p align="center"><a href="#">Nouveau<br />commentaire</a></p></div>
+            <div class="bouton"><p align="center"><a href="#">X like / Y dislike</a></p></div>
         </div>
 
-        <div class="row">
-            <div class="col">
+            <div class="col"><!-- commentaire -->
                 <div class="main">Prénom</div>
                 <div class="main">date</div>
                 <div class="main">text</div>
             </div>
-        </div>
+            <div class="col"><!-- commentaire -->
+                <div class="main">Prénom</div>
+                <div class="main">date</div>
+                <div class="main">text</div>
+            </div>
+            <div class="col"><!-- commentaire -->
+                <div class="main">Prénom</div>
+                <div class="main">date</div>
+                <div class="main">text</div>
+            </div>
 </section>
 
 <?php

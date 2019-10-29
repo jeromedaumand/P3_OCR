@@ -14,14 +14,10 @@ include ('constante.php');
 </head>
 <body>
 
-<!-- Header -->
-<header>
-    <div class="header">
-        <div class="row">
-            <div class="main">Page de login</div>
-        </div>
-    </div>
-</header>
+<?php
+include('header.php');
+?>
+
 <section class="presentation">
     <div class="col">
         <div class="main"><h1><?php echo $title; ?></h1></div>

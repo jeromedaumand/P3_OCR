@@ -30,7 +30,7 @@ include('header.php');
 <div class="col">
     <div class="row"> <!-- un container par partenaire -->
         <div class="side"> <!-- container pour le logo -->
-            <div class="fakeimg">Image</div>
+            <div class="fakeimg"><img src="/img/logo.jpg"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
             <h3>Nom du partenaire</h3>
@@ -42,7 +42,7 @@ include('header.php');
     </div>
     <div class="row"> <!-- un container par partenaire -->
         <div class="side"> <!-- container pour le logo -->
-            <div class="fakeimg">Image</div>
+            <div class="fakeimg"><img src="/img/logo.jpg"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
             <h3>Nom du partenaire</h3>
@@ -54,7 +54,7 @@ include('header.php');
     </div>
     <div class="row"> <!-- un container par partenaire -->
         <div class="side"> <!-- container pour le logo -->
-            <div class="fakeimg">Image</div>
+            <div class="fakeimg"><img src="/img/logo.jpg"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
             <h3>Nom du partenaire</h3>

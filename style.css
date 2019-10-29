@@ -12,19 +12,21 @@ body {
 .header {
     padding: 5px;
     text-align: center;
-    background: #1abc9c;
+    background: #fff;
     color: white;
     width: auto;
 }
 
 .header .side {
-    background: #1abc9c;
+    background: #fff;
     text-align: left;
 }
 
-.header .main{
-    background: #1abc9c;
+.header .main_header{
+    background: #fff;
     text-align: right;
+    color: black;
+    font-weight: bold;
 }
 .header .col {
     align-items: center;
@@ -95,8 +97,9 @@ body {
 
 .side {
     flex: 30%;
-    background-color: #f1f1f1;
+    background-color: #fff;
     padding: 10px;
+    margin: 2px;
     align-content: center;
     align-items: center;
     align-self: center;
@@ -106,21 +109,32 @@ body {
     flex: 70%;
     background-color: white;
     padding: 10px;
+    margin: 2px;
+    width: auto;
+}
+
+.main_header {
+    flex: 70%;
+    background-color: white;
+    padding: 10px;
+    margin: 2px;
+    align-self: center;
     width: auto;
 }
 
 .bouton {
     float: right;
     color: black;
-    padding: 0.2em 0.4em;
+    padding: 0.2em;
     background-color: white;
     justify-content: center;
     align-content: center;
+    align-self: center;
 }
 
 .bouton a {
     color: black;
-    padding: 0.2em 0.4em;
+    padding: 0.2em ;
     text-decoration: none;
     text-align: center;
 }
@@ -159,11 +173,24 @@ body {
 
 /* Fake image, just for this example */
 .fakeimg {
-    background-color: #aaa;
-    width: 100%;
-    padding: 20px;
-    height: 60px;
+    width: auto;
+    padding: 5px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.fakeimg img {
+    max-height: 150px;
+    position: relative;
+    left: -400px;
+    -webkit-animation-name: lefttoright; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-direction: normal; /* Safari 4.0 - 8.0 */
+    animation-name: lefttoright;
+    animation-duration: 2s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
 }
 
 .login {
@@ -194,14 +221,41 @@ body {
 .footer {
     padding: 5px;
     text-align: center;
-    background: #ddd;
+
     width: auto;
 }
 
 .footer .row {
     border-style: none;
-    background-color: #ddd;
+
 }
+
+.commentaire {
+    border-style: solid;
+    padding: 10px;
+    margin-right: 10px;
+    margin-left: 5px;
+
+}
+
+.commentaire .main{
+    padding: 2px;
+}
+
+.commentaire .col{
+    padding: 2px;
+    margin: 10px;
+    border-radius: 7px;
+    border-style: solid;
+}
+
+.commentaire .row{
+    padding: 2px;
+    border-style: none;
+}
+
+
+
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
@@ -218,4 +272,13 @@ body {
         flex-wrap: nowrap;
         width: auto;
     }
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes lefttoright {
+    100%   {left:0px;}
+}
+
+/* Standard syntax */
+@keyframes lefttoright {
+    100%   {left:0px;}
 }
