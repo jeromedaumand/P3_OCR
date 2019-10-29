@@ -35,7 +35,7 @@ include('header.php');
 if ( isset($_POST['login']) and !empty($_POST['login']) )
     {
         // vérifiation de l'unicité du login
-        $requete = $bdd->query('select login, password, nom, prenom from users where login = "' .htmlspecialchars($_POST['login']). '"') or die(print_r($bdd->errorInfo()));
+        $requete = $bdd->query('select username, password, nom, prenom from users where username = "' .htmlspecialchars($_POST['login']). '"') or die(print_r($bdd->errorInfo()));
             if ($requete->rowCount() > 0) {
                     while ($donnees = $requete->fetch())
                     {
@@ -48,7 +48,7 @@ if ( isset($_POST['login']) and !empty($_POST['login']) )
                 }
             else { //verification que tous les champs sont rempli
                 print_r($_POST);
-                if ( !empty(($_POST['login'])) and !empty(($_POST['nom'])) and !empty(($_POST['prenom'])) and !empty(($_POST['password'])) )
+                if ( !empty(($_POST['login'])) and !empty(($_POST['nom'])) and !empty(($_POST['prenom'])) and !empty(($_POST['password'])) and !empty(($_POST['question'])) and !empty(($_POST['reponse'])) )
                     {
                         // print_r($_POST);
                         // création de l'utilisateur
@@ -56,12 +56,16 @@ if ( isset($_POST['login']) and !empty($_POST['login']) )
                         $sha1pass = !isset($sha1pass) ? sha1(htmlspecialchars($_POST['password'])) : NULL;
                         $nom = !isset($nom) ? htmlspecialchars($_POST['nom']) : NULL;
                         $prenom = !isset($prenom) ? htmlspecialchars($_POST['prenom']) : NULL;
+                        $question = !isset($question) ? htmlspecialchars($_POST['question']) : NULL;
+                        $reponse = !isset($reponse) ? htmlspecialchars($_POST['reponse']) : NULL;
 
-                        $update = $bdd->prepare('INSERT INTO users (login, nom, prenom, password) VALUES ( :login, :nom, :prenom, :pass)');
+                        $update = $bdd->prepare('INSERT INTO users (username, nom, prenom, password, question, reponse) VALUES ( :login, :nom, :prenom, :pass, :question, :reponse)');
                         $update->execute(array(
                             'login' => $login,
                             'nom' => $nom,
                             'prenom' => $prenom,
+                            'question' => $question,
+                            'reponse' => $reponse,
                             'pass' => $sha1pass ) ) or die(print_r($bdd->errorInfo()));
                         $requete->closeCursor();
                     }

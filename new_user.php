@@ -36,6 +36,8 @@ include('header.php');
             <p>Votre nom<br /><input class="input_login" type="text" value="nom" name="nom"></p>
             <p>Votre prénom<br /><input class="input_login" type="text" value="prenom" name="prenom"></p>
             <p>Mot de passe<br /><input class="input_password" type="password" " value="password" name="password"></p>
+            <p>Question secrète<br /><input class="input_login" type="text" value="Question" name="question"></p>
+            <p>Votre réponse à la question secrète<br /><input class="input_login" type="text" value="réponse" name="reponse"></p>
             <input type="submit" class="input_bouton">
         </form>
     </div>

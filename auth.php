@@ -37,15 +37,15 @@ include('header.php');
 if ( isset($_POST['login']) and !empty($_POST['login']) ){
 
 
-    $requete = $bdd->query('select login, password, nom, prenom from users where login = "' .htmlspecialchars($_POST['login']). '"') or die(print_r($bdd->errorInfo()));
+    $requete = $bdd->query('select username, password, nom, prenom from users where username = "' .htmlspecialchars($_POST['login']). '"') or die(print_r($bdd->errorInfo()));
     if ($requete->rowCount() > 0) {
         while ($donnees = $requete->fetch())
         {
             //verification du password
-            if (isset($donnees['login'])){
+            if (isset($donnees['username'])){
                 if ($donnees['password'] == sha1(htmlspecialchars($_POST['password']))){
                     $_SESSION['username'] = $donnees['nom']. " " .$donnees['prenom'];
-                    $_SESSION['login'] = $donnees['login'];
+                    $_SESSION['login'] = $donnees['username'];
                     $_SESSION['auth'] = true;
                     echo "Bienvenu " . $_SESSION['username'] . " !<br />";
                     echo "Vous allez être redirigé automatiquement dans 10s.";
