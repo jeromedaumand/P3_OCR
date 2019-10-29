@@ -47,7 +47,7 @@ if ( isset($_POST['login']) and !empty($_POST['login']) )
                     $requete->closeCursor();
                 }
             else { //verification que tous les champs sont rempli
-                print_r($_POST);
+
                 if ( !empty(($_POST['login'])) and !empty(($_POST['nom'])) and !empty(($_POST['prenom'])) and !empty(($_POST['password'])) and !empty(($_POST['question'])) and !empty(($_POST['reponse'])) )
                     {
                         // print_r($_POST);

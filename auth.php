@@ -48,9 +48,7 @@ if ( isset($_POST['login']) and !empty($_POST['login']) ){
                     $_SESSION['login'] = $donnees['username'];
                     $_SESSION['id_user'] = $donnees['id_user'];
                     $_SESSION['auth'] = true;
-                    echo "Bienvenu " . $_SESSION['username'] . " !<br />";
-                    echo "Vous allez être redirigé automatiquement dans 10s.";
-                    header ("Refresh: 10;URL=actors.php");
+                    header ("Refresh: 0;URL=actors.php");
                 }
                 else{
                     echo "Mot de passe invalide !!<br />";
