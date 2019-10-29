@@ -147,6 +147,11 @@ body {
     background-color: #aaa;
 }
 
+.bouton img {
+    max-width: 35px;
+    max-height: 35px;
+}
+
 .center {
     display: flex;
     flex: 100%;
@@ -307,6 +312,13 @@ body {
     .fakeimg_logo img {
         max-width: 300px;
         left: -350px;
+    }
+    textarea{
+        row-span: 10;
+    }
+    .bouton img {
+        max-width: 25px;
+        max-height: 25px;
     }
 }
 /* Safari 4.0 - 8.0 */

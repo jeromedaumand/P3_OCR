@@ -33,6 +33,7 @@ include('header.php');
             <p>Mot de passe<br /><input class="input_password" type="password" " value="password" name="password"></p>
             <input type="submit" class="input_bouton">
         </form>
+        <div class="bouton"><a href="forget.php">Mot de passe oublié ?</a></div>
     </div>
 </section>
 

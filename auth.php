@@ -44,7 +44,7 @@ if ( isset($_POST['login']) and !empty($_POST['login']) ){
             //verification du password
             if (isset($donnees['username'])){
                 if ($donnees['password'] == sha1(htmlspecialchars($_POST['password']))){
-                    $_SESSION['username'] = $donnees['nom']. " " .$donnees['prenom'];
+                    $_SESSION['username'] = strtoupper($donnees['nom']). " " .ucfirst($donnees['prenom']);
                     $_SESSION['login'] = $donnees['username'];
                     $_SESSION['id_user'] = $donnees['id_user'];
                     $_SESSION['auth'] = true;

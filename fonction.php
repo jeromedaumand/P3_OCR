@@ -36,3 +36,32 @@ function date_fr($time){
         return $time;
 
 }
+
+
+/*---------------------------------------------------------------*/
+/*
+    Titre : Génération basique de password aléatoire
+
+    URL   : https://phpsources.net/code_s.php?id=397
+    Auteur           : Mycado
+    Date édition     : 29 Mai 2008
+    Date mise à jour : 29 Aout 2019
+    Rapport de la maj:
+    - fonctionnement du code vérifié
+*/
+/*---------------------------------------------------------------*/
+function passgen1($nbChar) {
+    $chaine ="mnoTUzS5678kVvwxy9WXYZRNCDEFrslq41GtuaHIJKpOPQA23LcdefghiBMbj0";
+    srand((double)microtime()*1000000);
+    $pass = '';
+    for($i=0; $i<$nbChar; $i++){
+        $pass .= $chaine[rand()%strlen($chaine)];
+    }
+    return $pass;
+}
+
+function passgen2($nbChar){
+    return substr(str_shuffle(
+        'abcdefghijklmnopqrstuvwxyzABCEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1, $nbChar);
+}
+/*---------------------------------------------------------------*/

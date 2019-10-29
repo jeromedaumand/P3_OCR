@@ -38,7 +38,7 @@ if (isset($_POST['message']) and  !empty($_POST['message']) )
 {
 
     $post = htmlspecialchars($_POST["message"]);
-    
+
     //construction de la requete d'insertion
     $update = $bdd->prepare('INSERT INTO post (id_user, id_acteur, post,date_add) VALUES(:userid, :acteurid, :post, :heure)');
     $update->execute(array(

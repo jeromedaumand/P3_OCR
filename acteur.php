@@ -104,7 +104,7 @@ include('header.php');
         <div class="row">
             <div class="side">'.$nb_comm.' commentaires</div>
             <div class="bouton"><p align="center"><a href="add_comm.php?id='.$id_act.'">Ajouter un<br />commentaire</a></p></div>
-            <div class="bouton"><p align="center"><a href="like.php?action=1&id='.$id_act.'">'.$nb_like[0].' like</a> / <a href="like.php?action=0&id='.$id_act.'">'.$nb_dislike[0].' dislike</a></p></div>
+            <div class="bouton"><p align="center">'.$nb_like[0].'<a href="like.php?action=1&id='.$id_act.'"><img src="/img/icone-pouce-haut.png" /></a> / <a href="like.php?action=0&id='.$id_act.'"><img src="/img/icone-pouce-bas.png" /></a>'.$nb_dislike[0].'</p></div>
         </div>
         ';
 
@@ -113,9 +113,9 @@ include('header.php');
         while ($donnees = $requete->fetch()) {
             echo '
             <div class="col"><!-- commentaire -->
-                <div class="main">'.$donnees["prenom"].'</div>
+                <div class="main">'.ucfirst($donnees["prenom"]).'</div>
                 <div class="main">'.date_fr($donnees["date_add"]).'</div>
-                <div class="main">'.nl2br($donnees["post"]).'</div>
+                <div class="main">'.nl2br(ucfirst($donnees["post"])).'</div>
             </div>';
         }
         $requete->closeCursor();
