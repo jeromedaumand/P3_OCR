@@ -7,8 +7,10 @@
                 <div class='bouton'>
                     <p><?php
              if (isset($_SESSION['login']) and !empty($_SESSION['login']) ){
-                 echo "<a title='Profile' href=\"profile.php\" alt='Profile'><img src=\"/img/icone_param.svg\" height=\"40\"></a>
-        <img src=\"/img/user.png\" height=\"30\"><a title='Déconnexion' href=\"deconnexion.php\" alt='Se déconnecter'>" . $_SESSION['username'] . "</a>";
+                 echo '
+            <a title="Déconnexion" href="deconnexion.php" alt="Se déconnecter"><img class="rotate" src="/img/deconnexion.png" height="30"></a>
+            <a title="Profile" href="profile.php" alt="Profile"><img class="rotate" src="/img/icone_param.svg" height="40"></a>
+            <img src="/img/user.png" height="40">' . $_SESSION['username'];
              }
              else {
               echo "<a href='index.php'>Connexion</a>";

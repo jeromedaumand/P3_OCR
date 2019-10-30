@@ -90,6 +90,7 @@ body {
     border-style: solid;
     border-color: black;
     margin: 2px;
+    overflow: hidden;
 }
 
 .col {
@@ -150,6 +151,16 @@ body {
 .bouton img {
     max-width: 35px;
     max-height: 35px;
+
+}
+
+.rotate {
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+    transition: transform 1s;
+}
+.rotate:hover {
+    -webkit-transform: rotate(-90deg); /* Safari */
+    transform: rotate(-90deg);
 }
 
 .center {
