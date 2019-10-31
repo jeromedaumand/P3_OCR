@@ -43,11 +43,6 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
         exit;
     }
 
-    echo "question ? <br />";
-    print_r($question);
-    echo "form ";
-    print_r($_POST);
-    echo "<br />";
     ?>
 
 
@@ -75,26 +70,19 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
     $req_question = $bdd->query('select reponse from users
                                     where username = "' . htmlspecialchars($login) . '"
                                     limit 1;' ) or die(print_r($bdd->errorInfo()));
-    echo 'login : $login et reponse : $answer';
-    echo "form ";
-    print_r($_POST);
-    echo "<br />";
+
     $answer_bdd = $req_question->fetch();
 
     if ( htmlspecialchars($answer_bdd[0]) == $reponse ){
         $new_pass = passgen1(10);
         echo 'Votre nouveau mot de passe est : ' . $new_pass . '<br />';
-        echo 'Penser à le changer !';
-        echo $new_pass;
-        exit;
-        $req_pass = $bdd->query('update password from users
-        where username = "' . htmlspecialchars($login) . '"
-        set password = "' . sha1($new_pass) . '" 
+        echo 'Pensez à le changer !';
+
+        $req_pass = $bdd->query('update users
+        set password = sha1("' . $new_pass . '")
+        where username = "' . htmlspecialchars($login) . '"         
         limit 1;' ) or die(print_r($bdd->errorInfo()));
 
-        echo 'Votre nouveau mot de passe est : ' . $new_pass . '<br />';
-        echo 'Penser à le changer !';
-        echo $new_pass;
     }else{
         echo "ce n'est pas la bonne réponse !!";
         header ("Refresh: 5;URL=forget.php");

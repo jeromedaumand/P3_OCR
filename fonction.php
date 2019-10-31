@@ -65,3 +65,7 @@ function passgen2($nbChar){
         'abcdefghijklmnopqrstuvwxyzABCEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1, $nbChar);
 }
 /*---------------------------------------------------------------*/
+
+function show_error_message($message){
+    echo "<div class='col'><div class=error_message>" . $message . "</div></div>";
+}

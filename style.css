@@ -294,6 +294,24 @@ body {
     border-style: none;
 }
 
+.error_message{
+    display: flex;
+
+    justify-content: space-around;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    padding: 5px;
+    margin: 10px;
+    color: black;
+    width: 50%;
+    background: #fff;
+    border-radius: 5px;
+    border: 3px;
+    border-style: solid;
+    border-color: red;
+}
+
 
 
 
