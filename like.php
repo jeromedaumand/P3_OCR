@@ -7,14 +7,13 @@ if (!isset($_SESSION['auth']) or ($_SESSION['auth'] != 1 )){
     exit;
 }
 
-//verification de la présence du l'id acteur
+//verification de la présence de l'id acteur
 if ( isset($_GET['id']) and !empty($_GET['id']) and is_numeric($_GET['id']) ) {
     $id_act = $_GET['id'];
 }
 else {
-    echo "Cette page n'est pas accéssible directement <br />";
-    echo "Vous allez être redirigé automatiquement.";
-    header ("Refresh: 5;URL=actors.php");
+    show_error_message("Cette page n'est pas accéssible directement ");
+    show_error_message("Vous allez être redirigé automatiquement.",5, 'actors.php');
     exit;
 }
 
@@ -23,9 +22,8 @@ if ( isset($_GET['action']) and !empty($_GET['action']) and is_numeric($_GET['ac
     $vote = $_GET['action'];
 }
 else {
-    echo "Cette page n'est pas accéssible directement <br />";
-    echo "Vous allez être redirigé automatiquement.";
-    header ("Refresh: 5;URL=actors.php");
+    show_error_message("Cette page n'est pas accéssible directement ");
+    show_error_message("Vous allez être redirigé automatiquement.",5, 'actors.php');
 }
 
 // verification si l'utilisateur à déja liké on le lui refuse et on redirige vers la page acteur.php
@@ -74,4 +72,3 @@ else{
 }
 
 //fin de l'insertion du nouveau message
-?>

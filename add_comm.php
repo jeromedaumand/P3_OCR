@@ -12,8 +12,8 @@ if ( isset($_GET['id']) and !empty($_GET['id']) and is_numeric($_GET['id']) ) {
     $id_act = $_GET['id'];
 }
 else {
-    echo "Cette page n'est pas accéssible directement <br />";
-    echo "Vous allez être redirigé automatiquement.";
+    show_error_message("Cette page n'est pas accéssible directement ");
+    show_error_message("Vous allez être redirigé automatiquement.");
     header ("Refresh: 5;URL=actors.php");
     exit;
 }
@@ -48,6 +48,7 @@ if (isset($_POST['message']) and  !empty($_POST['message']) )
         'post' => $post
         )) or die(print_r($bdd->errorInfo()));
     //var_dump($update);
+    $update->closeCursor();
     header ("Refresh: 0;URL=acteur.php?id=$id_act");
 }else {
 //fin de l'insertion du nouveau message
@@ -65,7 +66,6 @@ if (isset($_POST['message']) and  !empty($_POST['message']) )
 
     <?php
 }
-$update->closeCursor();
 include "footer.php";
 ?>
 

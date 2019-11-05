@@ -32,9 +32,8 @@ include('header.php');
         $id_act = $_GET['id'];
     }
     else {
-        echo "Cette page n'est pas accéssible directement <br />";
-        echo "Vous allez être redirigé automatiquement.";
-        header ("Refresh: 5;URL=actors.php");
+        show_error_message("Cette page n'est pas accéssible directement ");
+        show_error_message("Vous allez être redirigé automatiquement.",5, 'actors.php');
         exit;
     }
 
@@ -60,9 +59,8 @@ include('header.php');
         $requete->closeCursor();
     }
     else{
-        echo "aucun partenaire trouvé !<br />";
-        echo "Vous allez être redirigé automatiquement.";
-        header ("Refresh: 5;URL=actors.php");
+        show_error_message("aucun partenaire trouvé !");
+        show_error_message("Vous allez être redirigé automatiquement.",5, 'actors.php');
         exit;
     }
 

@@ -2,6 +2,11 @@
 //test extranet banquaire pour OCR
 include ('inc_db_connection.php');
 include ('constante.php');
+
+if (!isset($_SESSION['auth']) or ($_SESSION['auth'] != 1 )) {
+    header("Refresh: 0;URL=index.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

@@ -32,13 +32,12 @@ unset($_SESSION['login']);
 unset($_SESSION['auth']);
 ?>
 <section class="login">
-    <div class="main">
-        <p>Vous êtes maintenant déconnecté</p>
-    </div>
+    <?php
+    show_error_message("Vous êtes maintenant déconnecté.",5);
+    ?>
 </section>
 
 <?php
-header ("Refresh: 5;URL=index.php");
 include "footer.php";
 ?>
 

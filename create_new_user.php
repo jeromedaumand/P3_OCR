@@ -40,9 +40,8 @@ if ( isset($_POST['login']) and !empty($_POST['login']) )
                     while ($donnees = $requete->fetch())
                     {
                         //un login à déja été trouvé il faut recommencer
-                                echo "Ce login est déjà utilisé ! <br>";
-                                echo "Vous allez être redirigé automatiquement.";
-                                header ("Refresh: 5;URL=new_user.php");
+                                show_error_message("Ce login est déjà utilisé ! ");
+                                show_error_message("Merci d'en choisir un autre.", 5, 'new_user.php');
                     }
                     $requete->closeCursor();
                 }
@@ -68,12 +67,12 @@ if ( isset($_POST['login']) and !empty($_POST['login']) )
                             'reponse' => $reponse,
                             'pass' => $sha1pass ) ) or die(print_r($bdd->errorInfo()));
                         $requete->closeCursor();
+                        show_error_message("Votre compte a bien été créé !", 5);
                     }
                 else // affichage d'un message d'alerte et redirection vers le formulaire
                     {
-                        echo 'Les champs ne doivent pas etre vide, merci de renseigner tous les champs';
-                        echo "Vous allez être redirigé automatiquement.";
-                        header ("Refresh: 10;URL=new_user.php");
+                        show_error_message('Les champs ne doivent pas être vide, merci de renseigner tous les champs');
+                        show_error_message("Vous allez être redirigé automatiquement.",10, 'new_user.php');
                     }
                 }
         $requete->closeCursor();

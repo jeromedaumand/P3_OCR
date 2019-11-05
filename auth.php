@@ -51,20 +51,18 @@ if ( isset($_POST['login']) and !empty($_POST['login']) ){
                     header ("Refresh: 0;URL=actors.php");
                 }
                 else{
-                    echo "Mot de passe invalide !!<br />";
-                    echo "refaite un essai.";
-                    header ("Refresh: 5;URL=index.php");
+                    show_error_message("Mot de passe invalide !!");
+                    show_error_message("refaite un essai.",5);
                 }
             }
 
         };
 
     } else {
-        echo "Login invalide !!<br />";
-        echo "Si vous êtes nouveau, merci de créer un compte en suivant le lien ci-dessous. <br />";
+        show_error_message("login invalide !!");
+        show_error_message("Si vous êtes nouveau, merci de créer un compte en suivant le lien ci-dessous. ",10);
         echo "<a href=\"new_user.php\">Nouvel utilisateur</a><br />";
-        echo "refaite un essai.<br />";
-        header ("Refresh: 10;URL=index.php");
+
     }
     $requete->closeCursor();
 }

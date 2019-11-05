@@ -38,8 +38,7 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
     $question = $req_log->fetch();
 
     if ($req_log->rowCount() == 0){
-        echo 'Aucun login trouvé !!';
-        header ("Refresh: 5;URL=forget.php");
+        show_error_message('Aucun login trouvé !!',5, 'forget.php');
         exit;
     }
 
@@ -75,8 +74,8 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
 
     if ( htmlspecialchars($answer_bdd[0]) == $reponse ){
         $new_pass = passgen1(10);
-        echo 'Votre nouveau mot de passe est : ' . $new_pass . '<br />';
-        echo 'Pensez à le changer !';
+        show_error_message('Votre nouveau mot de passe est : <b>' . $new_pass .'</b>');
+        show_error_message('Pensez à le changer !');
 
         $req_pass = $bdd->query('update users
         set password = sha1("' . $new_pass . '")
@@ -84,8 +83,7 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
         limit 1;' ) or die(print_r($bdd->errorInfo()));
 
     }else{
-        echo "ce n'est pas la bonne réponse !!";
-        header ("Refresh: 5;URL=forget.php");
+        show_error_message("ce n'est pas la bonne réponse !!",5, 'forget.php');
     }
 }
 
