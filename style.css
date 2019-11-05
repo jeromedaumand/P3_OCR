@@ -342,9 +342,6 @@ body {
         max-width: 300px;
         left: -350px;
     }
-    textarea{
-        row-span: 10;
-    }
     .bouton img {
         max-width: 25px;
         max-height: 25px;
