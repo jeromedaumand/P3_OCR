@@ -69,7 +69,6 @@ function passgen2($nbChar){
 function show_error_message($string, int $refresh = null, $url = 'index.php'){
     echo "<div class='col'><div class=error_message>" . $string . "</div></div>";
     if (isset($refresh) and is_numeric($refresh)){
-        echo 'header("Refresh: '.$refresh.';URL='.$url.'");';
         header("Refresh: $refresh;URL=$url");
     }
 }
