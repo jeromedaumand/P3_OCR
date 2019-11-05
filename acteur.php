@@ -45,7 +45,7 @@ include('header.php');
         while ($donnees = $requete->fetch())
         {
             echo '      <div class="main"> <!-- container pour le logo -->
-            <div class="fakeimg_logo"><img src="/img/'.$donnees["logo"].'"></div>
+            <div class="fakeimg_logo"><img src="/img/'.$donnees["logo"].'" alt="logo_partenaire"></div>
         </div>
         <div class="main"> <!-- container pour le descriptif -->
             <h3>'.$donnees["acteur"].'</h3>
@@ -70,7 +70,9 @@ include('header.php');
 
 <!-- container pour les commentaires -->
 
-<section class="commentaire"><?php
+<section class="commentaire">
+    <h2>Commentaires :</h2>
+<?php
     //comptage des like et dislike
 
     $req_like = $bdd->query('select count(vote) from  vote
@@ -101,8 +103,8 @@ include('header.php');
     echo '
         <div class="row">
             <div class="side">'.$nb_comm.' commentaires</div>
-            <div class="bouton"><p align="center"><a href="add_comm.php?id='.$id_act.'">Ajouter un<br />commentaire</a></p></div>
-            <div class="bouton"><p align="center">'.$nb_like[0].'<a href="like.php?action=1&id='.$id_act.'"><img src="/img/icone-pouce-haut.png" /></a> / <a href="like.php?action=0&id='.$id_act.'"><img src="/img/icone-pouce-bas.png" /></a>'.$nb_dislike[0].'</p></div>
+            <div class="bouton"><p style="text-align:center"><a href="add_comm.php?id='.$id_act.'">Ajouter un<br />commentaire</a></p></div>
+            <div class="bouton"><p  style="text-align:center">'.$nb_like[0].'<a href="like.php?action=1&id='.$id_act.'"><img src="/img/icone-pouce-haut.png" alt="icone-pouce-haut" /></a> / <a href="like.php?action=0&id='.$id_act.'"><img src="/img/icone-pouce-bas.png" alt="icone-pouce-bas" /></a>'.$nb_dislike[0].'</p></div>
         </div>
         ';
 

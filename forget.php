@@ -47,11 +47,12 @@ if (isset($_POST['form_type']) and !empty($_POST['form_type']) and $_POST['form_
 
     <section class="login">
         <div class="main">
+            <h2>Formulaire de mot de passe perdu.</h2>
             <form action="forget.php" method="post" class="formulaire">
                 <p>Question secrete <br /><?php echo htmlspecialchars($question[0]);?></p>
-                <p>Votre réponse<br /><input class="input_login" type="text" " value="réponse" name="answer" autofocus></p>
-                <input class="input_login" type="hidden" " value="form_query" name="form_type" >
-                <input class="input_login" type="hidden" " value="<?php echo $login; ?>" name="login" >
+                <p>Votre réponse<br /><input class="input_login" type="text" value="réponse" name="answer" autofocus></p>
+                <input class="input_login" type="hidden" value="form_query" name="form_type" >
+                <input class="input_login" type="hidden" value="<?php echo $login; ?>" name="login" >
                 <input type="submit" class="input_bouton">
             </form>
         </div>
@@ -96,11 +97,12 @@ if (!isset($_POST['form_type']) or empty($_POST['form_type'])){
 ?>
 
 <section class="login">
+    <h2>Formulaire de mot de passe perdu.</h2>
     <div class="main">
         <form action="forget.php" method="post" class="formulaire">
             <p>Veuillez indiquer votre nom d'uilisateur<br />
-                <input class="input_login" type="text" " value="login" name="login" autofocus></p>
-            <input class="input_login" type="hidden" " value="form_log" name="form_type">
+                <input class="input_login" type="text" value="login" name="login" autofocus></p>
+            <input class="input_login" type="hidden" value="form_log" name="form_type">
             <input type="submit" class="input_bouton">
         </form>
     </div>

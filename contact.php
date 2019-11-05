@@ -28,7 +28,7 @@ include('header.php');
 
 <section class="login">
     <div class="main">
-        Page de contact
+        <H2>Page de contact</H2>
     </div>
 </section>
 

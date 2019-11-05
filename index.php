@@ -28,9 +28,10 @@ include('header.php');
 
 <section class="login">
     <div class="main">
+        <h2>Formulaire de connexion</h2>
         <form action="auth.php" method="post" class="formulaire">
-            <p>Nom d'utilisateur<br /><input class="input_login" type="text" value="login" name="login"></p>
-            <p>Mot de passe<br /><input class="input_password" type="password" " value="password" name="password"></p>
+            <p>Nom d'utilisateur<br /> <input class="input_login" type="text" value="login" name="login"></p>
+            <p>Mot de passe<br /><input class="input_password" type="password" value="password" name="password"></p>
             <input type="submit" class="input_bouton">
         </form>
         <div class="bouton"><a href="forget.php">Mot de passe oublié ?</a></div>

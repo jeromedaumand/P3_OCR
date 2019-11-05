@@ -58,7 +58,7 @@ if (isset($_POST['message']) and  !empty($_POST['message']) )
     <section class="login">
         <div class="main">
             <form action="add_comm.php?id=<?php echo $id_act; ?>" method="post" class="formulaire" id="formcom">
-                <p>Commentaire<br/><textarea autofocus form="formcom" class="input_login" name="message"></textarea></p>
+                <h3>Commentaire :</h3><br/><textarea autofocus form="formcom" class="input_login" name="message"></textarea>
                 <input type="submit" class="input_bouton">
             </form>
         </div>

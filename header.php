@@ -8,9 +8,9 @@
                     <p><?php
              if (isset($_SESSION['login']) and !empty($_SESSION['login']) ){
                  echo '
-            <a title="Déconnexion" href="deconnexion.php" alt="Se déconnecter"><img class="rotate" src="/img/deconnexion.png" height="30"></a>
-            <a title="Profile" href="profile.php" alt="Profile"><img class="rotate" src="/img/icone_param.svg" height="40"></a>
-            <img src="/img/user.png" height="40">' . $_SESSION['username'];
+            <a title="Déconnexion" href="deconnexion.php"><img alt="Se déconnecter" class="rotate" src="/img/deconnexion.png" height="30"></a>
+            <a title="Profile" href="profile.php"><img alt="Profile" class="rotate" src="/img/icone_param.svg" height="40"></a>
+            <img src="/img/user.png" height="40" alt="logo_user">' . $_SESSION['username'];
              }
              else {
               echo "<a href='index.php'>Connexion</a>";

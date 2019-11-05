@@ -28,7 +28,7 @@ include('header.php');
 
 <section class="login">
     <div class="main">
-        Mentions légales
+        <H2>Mentions légales</H2>
     </div>
 </section>
 

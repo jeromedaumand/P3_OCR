@@ -49,7 +49,7 @@ if (!isset($_SESSION['auth']) or ($_SESSION['auth'] != 1 )){
         {
             echo '    <div class="row"> <!-- un container par partenaire -->
                     <div class="side"> <!-- container pour le logo -->
-                        <div class="fakeimg"><img src="/img/'.$donnees["logo"].'"></div>
+                        <div class="fakeimg"><img src="/img/'.$donnees["logo"].'" alt="logo_partenaire"></div>
                     </div>
                     <div class="main"> <!-- container pour le descriptif -->
                         <h3>'.$donnees["acteur"].'</h3>
